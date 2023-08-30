@@ -17,6 +17,7 @@
 - Implemented SignOut
 - Updated Profile
 - BugFix --> When user not logged-in redirect to login page && when user logged-In redirect to browse page
+- Unsubscribe when component unmounts
 
 # Feautures:
 
