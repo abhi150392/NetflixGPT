@@ -18,6 +18,7 @@
 - Updated Profile
 - BugFix --> When user not logged-in redirect to login page && when user logged-In redirect to browse page
 - Unsubscribe when component unmounts
+- Make an API call and get data from TMDB API
 
 # Feautures:
 
