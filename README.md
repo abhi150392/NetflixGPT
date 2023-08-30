@@ -12,6 +12,10 @@
 - Deploying app to production
 - Create SignUp user Account
 - create signUp User in Firebase
+- Implemented SignIn user API
+- Setup Redux store with userSlice
+- Implemented SignOut
+- Updated Profile
 
 # Feautures:
 
