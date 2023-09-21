@@ -4,7 +4,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import { LOGO } from "../utils/constants";
+import { LOGO, PHOTO_URL } from "../utils/constants";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -14,6 +14,7 @@ const Header = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
+        navigate("/");
       })
       .catch((error) => {
         // An error happened.
@@ -24,13 +25,13 @@ const Header = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        const { uid, displayName, email, photoURL } = user.uid;
+        const { uid, displayName, email, photoURL } = user;
         dispatch(
           addUser({
             uid: uid,
             email: email,
             displayName: displayName,
-            photoURL: photoURL,
+            photoURL: PHOTO_URL,
           })
         );
         navigate("/browse");

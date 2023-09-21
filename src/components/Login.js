@@ -1,12 +1,13 @@
 import React, { useRef, useState } from "react";
+import { PHOTO_URL } from "../utils/constants";
 import Header from "./Header";
 import { checkValidate } from "../utils/validator";
+import { auth } from "../utils/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
@@ -14,11 +15,14 @@ import { addUser } from "../utils/userSlice";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
-  const dispatch = useDispatch();
+
+  //getting data from input form
   const email = useRef(null);
   const password = useRef(null);
-  const navigate = useNavigate();
   const name = useRef(null);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const toggleHandler = () => {
     setIsSignInForm(!isSignInForm);
@@ -30,21 +34,22 @@ const Login = () => {
     setErrorMessage(message);
 
     if (message) return;
-
     //Sign-In / Sign-Up Logic
     if (!isSignInForm) {
-      //SignUp Logic
+      //Sign-Up logic
       createUserWithEmailAndPassword(
         auth,
         email.current.value,
         password.current.value
       )
         .then((userCredential) => {
-          // Signed in
+          // Signed up
           const user = userCredential.user;
+          console.log(user);
+          //update user-profile
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/74586101?v=4",
+            photoURL: { PHOTO_URL },
           })
             .then(() => {
               // Profile updated!
@@ -54,23 +59,23 @@ const Login = () => {
                   uid: uid,
                   email: email,
                   displayName: displayName,
-                  photoURL: photoURL,
+                  photoURL: PHOTO_URL,
                 })
               );
               navigate("/browse");
-              // ...
             })
             .catch((error) => {
+              // An error occurred
               setErrorMessage(error.message);
             });
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setErrorMessage(errorCode + "-" + errorMessage);
+          setErrorMessage(errorCode, +" -" + errorMessage);
         });
     } else {
-      //Sign-In Logic
+      //Sign-In logic
       signInWithEmailAndPassword(
         auth,
         email.current.value,
@@ -80,12 +85,11 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setErrorMessage(errorCode + "-" + errorMessage);
+          setErrorMessage(errorCode, +" -" + errorMessage);
         });
     }
   };

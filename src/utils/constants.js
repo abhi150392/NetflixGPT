@@ -9,3 +9,5 @@ export const API_Options = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjOWY3YWVkM2U3NWYxMzg1YzYzMGEwZDFlZGRhNzU4NyIsInN1YiI6IjY0ZWZjZjNlY2FhNTA4MDBjODg2NjAyYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zY6pU-X_tgdMjUi5N6JNTGB6hNRJmmDrxPkj8vET9ns",
   },
 };
+
+export const PHOTO_URL = "https://avatars.githubusercontent.com/u/74586101?v=4";
