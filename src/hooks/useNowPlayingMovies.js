@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { API_Options } from "../utils/constants";
 import { addNowPlayingMovies } from "../utils/moviesSlice";
 
-const useNpwPlayingMovies = () => {
+const useNowPlayingMovies = () => {
   //Fetch data from TMDB API and update store
   const dispatch = useDispatch();
   const getNowPlayingMovies = async () => {
@@ -12,7 +12,7 @@ const useNpwPlayingMovies = () => {
       API_Options
     );
     const json = await data.json();
-    console.log(json.results);
+
     dispatch(addNowPlayingMovies(json.results));
   };
 
@@ -21,4 +21,4 @@ const useNpwPlayingMovies = () => {
   }, []);
 };
 
-export default useNpwPlayingMovies;
+export default useNowPlayingMovies;

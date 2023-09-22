@@ -20,6 +20,9 @@
 - Unsubscribe when component unmounts
 - Make an API call and get data from TMDB API
 - Added movie data to store
+- custom hooks to get api data
+- built trailer video to play in the background
+- embeded youtube to make it auto play
 
 # Feautures:
 
