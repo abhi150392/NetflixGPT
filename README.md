@@ -23,6 +23,9 @@
 - custom hooks to get api data
 - built trailer video to play in the background
 - embeded youtube to make it auto play
+- built movie list
+- built movie card
+- Tmdb image CDN url
 
 # Feautures:
 

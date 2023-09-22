@@ -11,3 +11,5 @@ export const API_Options = {
 };
 
 export const PHOTO_URL = "https://avatars.githubusercontent.com/u/74586101?v=4";
+
+export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500/";
