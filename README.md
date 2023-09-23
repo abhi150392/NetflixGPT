@@ -26,6 +26,9 @@
 - built movie list
 - built movie card
 - Tmdb image CDN url
+- GPT search feature
+- GPT search bar
+- Multilanhguage feature in APP
 
 # Feautures:
 
