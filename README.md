@@ -33,6 +33,7 @@
 - used OpenAI npm library --> calling from frontend results in leakage
 - set dangerouslyAllowBrowser : true
 - gpt 3.5 turbo
+- Added memoization - to limit api calls
 
 # Feautures:
 
