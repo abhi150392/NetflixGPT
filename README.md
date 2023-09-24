@@ -29,6 +29,10 @@
 - GPT search feature
 - GPT search bar
 - Multilanhguage feature in APP
+- intergrated api from platform.openai.com
+- used OpenAI npm library --> calling from frontend results in leakage
+- set dangerouslyAllowBrowser : true
+- gpt 3.5 turbo
 
 # Feautures:
 

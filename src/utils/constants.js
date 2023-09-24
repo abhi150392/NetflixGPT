@@ -13,3 +13,5 @@ export const API_Options = {
 export const PHOTO_URL = "https://avatars.githubusercontent.com/u/74586101?v=4";
 
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500/";
+
+export const OPENAI_KEY = "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";
